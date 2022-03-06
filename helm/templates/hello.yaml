@@ -4,6 +4,9 @@ metadata:
   name: hello
   namespace: default
 spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
   project: default
   source:
     path: helm
@@ -15,9 +18,6 @@ spec:
           repository: 523650524086.dkr.ecr.us-east-1.amazonaws.com/hackweek-metaflow-images
           tag: hello_v2
       version: v3
-  destination:
-    namespace: default
-    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       selfHeal: true

@@ -3,18 +3,17 @@ kind: Application
 metadata:
   name: hello
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
   project: default
   source:
     path: helm
     repoURL: https://github.com/tlee14-upstart/infra-hello.git
     targetRevision: HEAD
-  destination:
-    namespace: default
-    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
+      allowEmpty: true

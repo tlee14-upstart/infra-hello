@@ -12,9 +12,8 @@ spec:
     helm:
       values: |
         image:
-          tag: v1
-        ingress:
-          host: 10.130.2.126:5001
+          repository: 523650524086.dkr.ecr.us-east-1.amazonaws.com/hackweek-metaflow-images
+          tag: hello_v2
       version: v3
   destination:
     namespace: default

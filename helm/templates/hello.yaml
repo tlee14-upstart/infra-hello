@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello
+  namspace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    path: helm
+      repoURL: https://github.com/tlee14-upstart/hello.git
+      targetRevision: HEAD
+      helm:
+        values: |
+          image:
+            tag: v1
+          ingress:
+            host: hello.$INGRESS_HOST.xip.io
+        version: v3
+  destination:
+    namespace: production
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

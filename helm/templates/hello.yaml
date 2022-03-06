@@ -19,7 +19,7 @@ spec:
           host: 10.130.2.126:5001
       version: v3
   destination:
-    namespace: production
+    namespace: default
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:

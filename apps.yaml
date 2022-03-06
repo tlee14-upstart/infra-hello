@@ -12,7 +12,7 @@ spec:
     repoURL: https://github.com/tlee14-upstart/infra-hello.git
     targetRevision: HEAD
   destination:
-    namespace: production
+    namespace: default
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:

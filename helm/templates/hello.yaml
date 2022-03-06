@@ -16,7 +16,7 @@ spec:
         image:
           tag: v1
         ingress:
-          host: hello.$INGRESS_HOST.xip.io
+          host: 10.130.2.126:5001
       version: v3
   destination:
     namespace: production
